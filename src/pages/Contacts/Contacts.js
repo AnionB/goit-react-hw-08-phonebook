@@ -16,8 +16,3 @@ export default function Contacts() {
     </Container>
   );
 }
-
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-
-// import './styles.css';

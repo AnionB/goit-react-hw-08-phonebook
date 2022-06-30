@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useAuth } from 'redux/auth/authSlice';
 import { useRegisterMutation } from 'redux/auth/authApi';
+import { toast } from 'react-toastify';
 // import styles from './Register.module.css';
 
 export default function Register() {
@@ -47,6 +48,10 @@ export default function Register() {
     data && changeCredentials(data);
     data && clearInput();
     error && console.log(error);
+    error &&
+      toast.error(
+        ' чтото пошло не так, или данные логин-почта уже используются'
+      );
   };
 
   return (

@@ -17,7 +17,6 @@ export default function AppBar() {
     isSuccess && changeCredentials({ user: null, token: null, isLogin: false });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
-
   return (
     <header>
       <Navbar bg="primary fs-1 text" variant="dark">

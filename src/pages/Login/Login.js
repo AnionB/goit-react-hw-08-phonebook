@@ -1,13 +1,9 @@
-import React, {
-  // useEffect,
-  useState,
-} from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 
 import { useAuth } from 'redux/auth/authSlice';
 import { useLoginMutation } from 'redux/auth/authApi';
-
-// import styles from './Login.module.css';
+import { toast } from 'react-toastify';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -30,10 +26,9 @@ export default function Login() {
     setEmail('');
     setPassword('');
   };
-  const [
-    loginUser,
-    // { data, isSuccess }
-  ] = useLoginMutation();
+
+  const [loginUser] = useLoginMutation();
+
   const { changeCredentials } = useAuth();
   const handleSubmit = async e => {
     e.preventDefault();
@@ -41,12 +36,10 @@ export default function Login() {
     data && changeCredentials(data);
     data && clearInput();
     error && console.log(error);
+    error && toast.error(' чтото пошло не так, или неправильный логин-пароль');
 
     clearInput();
   };
-  // useEffect(() => {
-  //   isSuccess && console.log('Yra login ', data);
-  // }, [data, isSuccess]);
 
   return (
     <Container>

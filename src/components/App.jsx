@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import AppBar from './AppBar/AppBar';
 import StartPage from '../pages/StartPage/StartPage';
@@ -30,10 +31,20 @@ export const App = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <div>
       <AppBar />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
       <Routes>
         <Route path="/*" index element={<StartPage />} />

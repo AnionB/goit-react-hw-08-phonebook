@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import { Form, Button, Container } from 'react-bootstrap';
 
@@ -72,18 +72,6 @@ export default function ContactForm() {
 
   return (
     <Container>
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-
       <Form.Group
         className="mb-4 border border-1 p-3"
         controlId="exampleForm.ControlInput1"
