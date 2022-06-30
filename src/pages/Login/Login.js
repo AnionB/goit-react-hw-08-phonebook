@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  // useEffect,
+  useState,
+} from 'react';
 import { useAuth } from 'redux/auth/authSlice';
 import { useLoginMutation } from 'redux/auth/authApi';
 
@@ -25,7 +28,10 @@ export default function Login() {
     setEmail('');
     setPassword('');
   };
-  const [loginUser, { data, isSuccess }] = useLoginMutation();
+  const [
+    loginUser,
+    // { data, isSuccess }
+  ] = useLoginMutation();
   const { changeCredentials } = useAuth();
   const handleSubmit = async e => {
     e.preventDefault();
