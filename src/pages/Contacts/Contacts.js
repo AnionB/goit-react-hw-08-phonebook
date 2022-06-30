@@ -2,27 +2,18 @@ import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 export default function Contacts() {
   return (
-    <div className="thumb">
-      {/* <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      /> */}
-      <h1>Phonebook</h1>
+    <Container>
+      <h1 className="mb-4">Add contact</h1>
       <ContactForm />
-      <h2>Contacts</h2>
+      <h1 className="mb-4">Filter</h1>
       <Filter />
+      <h1 className="mb-4">Contact list</h1>
       <ContactList />
-    </div>
+    </Container>
   );
 }
 

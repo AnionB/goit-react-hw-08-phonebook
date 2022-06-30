@@ -4,7 +4,6 @@ export const contactsApi = createApi({
   reducerPath: 'contactsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com',
-    // refetchOnMountOrArgChange: 1,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
@@ -34,14 +33,14 @@ export const contactsApi = createApi({
     editContact: builder.mutation({
       query: ({ id, name, number }) => ({
         url: `contacts/${id}`,
-        method: 'patch',
+        method: 'PATCH',
         body: { name, number },
       }),
       invalidatesTags: ['contacts'],
     }),
     delContact: builder.mutation({
       query: id => ({
-        url: `contacts/${id}`,
+        url: `contacts/${id}/`,
         method: 'DELETE',
       }),
       invalidatesTags: ['contacts'],

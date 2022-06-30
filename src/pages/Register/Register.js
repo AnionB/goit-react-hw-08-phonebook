@@ -1,4 +1,6 @@
 import React from 'react';
+import { Form, Button, Container } from 'react-bootstrap';
+
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useAuth } from 'redux/auth/authSlice';
@@ -48,34 +50,43 @@ export default function Register() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <p>Name</p>
-      <input
-        onChange={handleChange}
-        value={name}
-        type="text"
-        name="name"
-        required
-      />
+    <Container>
+      <Form.Group className="mb-4 border border-1 p-3">
+        <Form onSubmit={handleSubmit}>
+          <Form.Label className="mb-4">Name</Form.Label>
+          <Form.Control
+            className="mb-4"
+            onChange={handleChange}
+            value={name}
+            type="text"
+            name="name"
+            required
+          />
 
-      <p>E-mail</p>
-      <input
-        onChange={handleChange}
-        value={email}
-        type="email"
-        name="email"
-        required
-      />
-      <p>Password</p>
-      <input
-        onChange={handleChange}
-        value={password}
-        type="password"
-        name="password"
-        required
-      />
+          <Form.Label className="mb-4">E-mail</Form.Label>
+          <Form.Control
+            className="mb-4"
+            onChange={handleChange}
+            value={email}
+            type="email"
+            name="email"
+            required
+          />
+          <Form.Label className="mb-4">Password</Form.Label>
+          <Form.Control
+            className="mb-4"
+            onChange={handleChange}
+            value={password}
+            type="password"
+            name="password"
+            required
+          />
 
-      <button type="submit">Register</button>
-    </form>
+          <Button className="mb-4" type="submit">
+            Register
+          </Button>
+        </Form>
+      </Form.Group>
+    </Container>
   );
 }

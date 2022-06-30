@@ -1,12 +1,13 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 export default function StartPage() {
   return (
-    <div>
-      <h1>
+    <Container className="d-flex justify-content-center">
+      <h2 className="mb-4">
         Welcome to Phone Book page! <br />
         Login please!
-      </h1>
-    </div>
+      </h2>
+    </Container>
   );
 }

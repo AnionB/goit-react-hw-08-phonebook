@@ -2,6 +2,8 @@ import React, {
   // useEffect,
   useState,
 } from 'react';
+import { Form, Button, Container } from 'react-bootstrap';
+
 import { useAuth } from 'redux/auth/authSlice';
 import { useLoginMutation } from 'redux/auth/authApi';
 
@@ -47,25 +49,33 @@ export default function Login() {
   // }, [data, isSuccess]);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <p>E-mail</p>
-      <input
-        onChange={handleChange}
-        value={email}
-        type="email"
-        name="email"
-        required
-      />
-      <p>Password</p>
-      <input
-        onChange={handleChange}
-        value={password}
-        type="password"
-        name="password"
-        required
-      />
+    <Container>
+      <Form.Group className="mb-4 border border-1 p-3">
+        <Form onSubmit={handleSubmit}>
+          <Form.Label className="mb-4">E-mail</Form.Label>
+          <Form.Control
+            className="mb-4"
+            onChange={handleChange}
+            value={email}
+            type="email"
+            name="email"
+            required
+          />
+          <Form.Label className="mb-4">Password</Form.Label>
+          <Form.Control
+            className="mb-4"
+            onChange={handleChange}
+            value={password}
+            type="password"
+            name="password"
+            required
+          />
 
-      <button type="submit">Login</button>
-    </form>
+          <Button className="mb-4" type="submit">
+            Login
+          </Button>
+        </Form>
+      </Form.Group>
+    </Container>
   );
 }
