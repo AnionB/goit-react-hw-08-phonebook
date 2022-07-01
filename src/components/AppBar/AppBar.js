@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 
 import { useLogoutMutation } from 'redux/auth/authApi';
-import { getIsLogin, useAuth, getUser } from 'redux/auth/authSlice';
+import { getIsLogin, getUser, setCredentials } from 'redux/auth/authSlice';
 
 export default function AppBar() {
   const isLogin = useSelector(getIsLogin);
   const user = useSelector(getUser);
 
   const [logoutUser, { isSuccess }] = useLogoutMutation();
-  const { changeCredentials } = useAuth();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    isSuccess && changeCredentials({ user: null, token: null, isLogin: false });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess]);
+    isSuccess &&
+      dispatch(setCredentials({ user: null, token: null, isLogin: false }));
+  }, [dispatch, isSuccess]);
   return (
     <header>
       <Navbar bg="primary fs-1 text" variant="dark">

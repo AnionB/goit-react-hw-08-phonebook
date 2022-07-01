@@ -20,7 +20,7 @@ export const authReducer = authSlice.reducer;
 export const useAuth = () => {
   const dispatch = useDispatch();
   const changeCredentials = data => dispatch(setCredentials(data));
-  return { changeCredentials, getIsLogin };
+  return { changeCredentials };
 };
 export const getIsLogin = state => state.auth.isLogin;
 export const getUser = state => state.auth.user;

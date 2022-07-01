@@ -37,8 +37,6 @@ export default function Login() {
     data && clearInput();
     error && console.log(error);
     error && toast.error(' чтото пошло не так, или неправильный логин-пароль');
-
-    clearInput();
   };
 
   return (
